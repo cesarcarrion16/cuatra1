@@ -60,7 +60,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SvgPicture.asset(
+                          Image.asset(
                             contents[i].image,
                             height:
                                 230, // 🔹 Opcionalmente, reducir un poco su tamaño

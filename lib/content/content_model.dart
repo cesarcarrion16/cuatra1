@@ -9,19 +9,19 @@ class UnbordingContent {
 
 List<UnbordingContent> contents = [
   UnbordingContent(
-      title: '¡Cuidado y salud para tu familia!',
-      image: 'images/Farmaceutica.svg',
+      title: '¡Excelencia Académica!',
+      image: 'images/Academica.jpg',
       discription:
-          "Encuentra los mejores productos para el bienestar de toda tu familia. "
-          "Medicinas, vitaminas y más, siempre al mejor precio."),
+          "Descubre nuestros programas académicos de alta calidad. "
+          "Ofrecemos una amplia variedad de carreras y cursos para tu desarrollo profesional."),
   UnbordingContent(
-      title: '¡Atención rápida y segura!',
-      image: 'images/Farmacia.svg',
-      discription: "Compra fácil y recibe tu pedido en minutos. "
-          "Contamos con servicio a domicilio y retiro en tienda para tu comodidad."),
+      title: '¡Campus Moderno y Seguro!',
+      image: 'images/Campus.jpeg',
+      discription: "Disfruta de nuestras instalaciones de última generación. "
+          "Contamos con un campus seguro y equipado con todo lo necesario para tu comodidad."),
   UnbordingContent(
-      title: '¡Promociones y descuentos!',
-      image: 'images/Medicinas.svg',
-      discription: "Ahorra en tus compras con nuestras ofertas especiales. "
-          "¡Cuida tu salud y cuida tu bolsillo! "),
+      title: '¡Oportunidades de Becas!',
+      image: 'images/Becas.jpeg',
+      discription: "Aprovecha nuestras becas y ayudas financieras. "
+          "Facilitamos tu acceso a la educación superior con diversas opciones de apoyo económico."),
 ];
