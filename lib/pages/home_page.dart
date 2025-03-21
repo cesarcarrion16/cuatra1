@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:proyecto_final/pages/login_page.dart';
 import 'package:proyecto_final/pages/navbar/campus.dart';
 import 'package:proyecto_final/pages/navbar/carreras.dart';
-import 'package:proyecto_final/pages/navbar/perfil.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> {
     'Inicio',
     'Campus',
     'Carreras',
-    'Perfil',
     'Editar Perfil',
     'Configuración',
     'Seguridad',
@@ -54,8 +53,8 @@ class _HomePageState extends State<HomePage> {
     });
     _pageController.animateToPage(
       index,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
+      duration: const Duration(milliseconds: 300), // Duración de la animación
+      curve: Curves.easeInOut, // Curva de animación
     );
   }
 
@@ -92,8 +91,9 @@ class _HomePageState extends State<HomePage> {
               accountName: Text(userName),
               accountEmail: Text(userEmail),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage("images/default_avatar.png"),
-              ),
+  backgroundImage: AssetImage("images/avatar.jpeg"),
+)
+              ,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(19, 93, 102, 1),
               ),
@@ -118,7 +118,6 @@ class _HomePageState extends State<HomePage> {
           _buildHomePage(),
           NavbarCampus(),
           NavbarCarreras(),
-          NavbarPerfil(),
           NavbarEditarPerfil(),
           NavbarConfiguracion(),
           NavbarSeguridad(),
@@ -150,19 +149,19 @@ Widget _buildProfileMenu() {
     children: [
       Container(
         color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Configuración
-        child: _buildDrawerItem(Icons.edit, 'Editar Perfil', 4),
+        child: _buildDrawerItem(Icons.edit, 'Editar Perfil', 3),
       ),
       Container(
         color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Configuración
-        child: _buildDrawerItem(Icons.settings, 'Configuración', 5),
+        child: _buildDrawerItem(Icons.settings, 'Configuración', 4),
       ),
       Container(
         color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Seguridad
-        child: _buildDrawerItem(Icons.security, 'Seguridad', 6),
+        child: _buildDrawerItem(Icons.security, 'Seguridad', 5),
       ),
       Container(
         color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Ayuda
-        child: _buildDrawerItem(Icons.help, 'Ayuda', 7),
+        child: _buildDrawerItem(Icons.help, 'Ayuda', 6),
       ),
     ],
   );

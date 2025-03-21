@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_final/pages/login_page.dart';
 import 'package:proyecto_final/pages/welcome_page.dart';
-import 'package:proyecto_final/pages/navbar/perfil.dart';
 import 'package:proyecto_final/pages/navbar/perfil/configuracion.dart';
 import 'package:proyecto_final/pages/navbar/perfil/seguridad.dart';
 import 'package:proyecto_final/pages/navbar/perfil/editar_perfil.dart';
@@ -25,7 +24,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/welcome': (context) => const WelcomePage(),
         '/login': (context) => const LoginPage(),
-        '/perfil': (context) => const NavbarPerfil(),
         '/configuracion': (context) => const NavbarConfiguracion(),
         '/seguridad': (context) => const NavbarSeguridad(),
         '/editar_perfil': (context) => const NavbarEditarPerfil(),
