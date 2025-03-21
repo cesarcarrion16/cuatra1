@@ -2,7 +2,7 @@
 
 import 'package:proyecto_final/controllers/login_controller.dart';
 import 'package:proyecto_final/pages/home_page.dart';
-import 'package:proyecto_final/pages/register.dart';
+import 'package:proyecto_final/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

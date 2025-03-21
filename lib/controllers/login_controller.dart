@@ -4,8 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Ajusta la URL dependiendo del entorno
-const String baseUrl = 'http://10.0.2.2:8000/api/login'; // Para emuladores Android
-//const String baseUrl = 'http://localhost:8000/api/login'; // Para web
+//const String baseUrl = 'http://10.0.2.2:8000/api/login'; // Para emuladores Android
+const String baseUrl = 'http://localhost:8000/api/login'; // Para web
 // const String baseUrl = 'http://192.168.x.x:8000/api/login'; // Para dispositivos físicos (ajusta tu IP local)
 
 Future<int> login(String email, String password) async {

@@ -1,7 +1,15 @@
-import 'package:proyecto_final/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
+import 'package:proyecto_final/pages/login_page.dart';
+import 'package:proyecto_final/pages/welcome_page.dart';
+import 'package:proyecto_final/pages/navbar/perfil.dart';
+import 'package:proyecto_final/pages/navbar/perfil/configuracion.dart';
+import 'package:proyecto_final/pages/navbar/perfil/seguridad.dart';
+import 'package:proyecto_final/pages/navbar/perfil/editar_perfil.dart';
+import 'package:proyecto_final/pages/navbar/perfil/ayuda.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,7 +21,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
-      home: WelcomePage(),
+      initialRoute: '/welcome',
+      routes: {
+        '/welcome': (context) => const WelcomePage(),
+        '/login': (context) => const LoginPage(),
+        '/perfil': (context) => const NavbarPerfil(),
+        '/configuracion': (context) => const NavbarConfiguracion(),
+        '/seguridad': (context) => const NavbarSeguridad(),
+        '/editar_perfil': (context) => const NavbarEditarPerfil(),
+        '/ayuda': (context) => const NavbarAyuda(),
+      },
     );
   }
 }

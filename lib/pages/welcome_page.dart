@@ -1,9 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:proyecto_final/content/content_model.dart';
-import 'package:proyecto_final/pages/login.dart';
+import 'package:proyecto_final/pages/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NavbarCitas extends StatelessWidget {
-  const NavbarCitas({super.key});
+class NavbarCampus extends StatelessWidget {
+  const NavbarCampus({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +12,9 @@ class NavbarCitas extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF009FFD), Color(0xFF2A2A72)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+                colors: [Color.fromRGBO(19, 93, 102, 1),Color.fromRGBO(0, 60, 67, 1)],
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
               ),
             ),
           ),
@@ -25,7 +25,7 @@ class NavbarCitas extends StatelessWidget {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Color.fromRGBO(227, 254, 247, 1),
               ),
             ),
           ),

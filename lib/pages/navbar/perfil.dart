@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:proyecto_final/pages/login_page.dart';
 
 class NavbarPerfil extends StatefulWidget {
   const NavbarPerfil({super.key});
@@ -28,16 +29,46 @@ class _NavbarPerfilState extends State<NavbarPerfil> {
     });
   }
 
+  // Función para confirmar el cierre de sesión
+  void _confirmLogout(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Cierre de Sesión"),
+          content: const Text("¿Deseas cerrar sesión?"),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text("No"),
+            ),
+            TextButton(
+              onPressed: () async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                await prefs.remove('token_app');
+                await prefs.remove('user_name');
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                  (Route<dynamic> route) => false,
+                );
+              },
+              child: const Text("Sí"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // Fondo degradado
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF009FFD), Color(0xFF2A2A72)],
+                colors: [Color.fromRGBO(19, 93, 102, 1), Color.fromRGBO(0, 60, 67, 1)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -50,57 +81,58 @@ class _NavbarPerfilState extends State<NavbarPerfil> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 20),
-                  // Imagen de perfil
                   CircleAvatar(
                     radius: 50,
                     backgroundImage: AssetImage("images/default_avatar.png"),
-                    backgroundColor: Colors.white.withOpacity(0.2),
+                    backgroundColor: Color.fromRGBO(227, 254, 247, 1).withOpacity(0.2),
                   ),
                   const SizedBox(height: 20),
-                  // Nombre del usuario
                   Text(
                     userName,
                     style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Color.fromRGBO(227, 254, 247, 1),
                     ),
                   ),
                   const SizedBox(height: 10),
-                  // Correo del usuario
                   Text(
                     userEmail,
                     style: const TextStyle(
                       fontSize: 18,
-                      color: Colors.white70,
+                      color: Color.fromRGBO(227, 254, 247, 1),
                     ),
                   ),
                   const SizedBox(height: 30),
-                  // Opciones de perfil
+
                   _buildProfileOption(
-                    icon: Icons.edit,
-                    text: "Editar Perfil",
-                    onTap: () {},
+                    icon: Icons.settings,
+                    text: "Configuración",
+                    onTap: () => Navigator.pushNamed(context, "/configuracion"),
                   ),
+
                   _buildProfileOption(
                     icon: Icons.security,
                     text: "Seguridad",
-                    onTap: () {},
+                    onTap: () => Navigator.pushNamed(context, "/seguridad"),
                   ),
+
+                  _buildProfileOption(
+                    icon: Icons.edit,
+                    text: "Editar Perfil",
+                    onTap: () => Navigator.pushNamed(context, "/editar_perfil"),
+                  ),
+
                   _buildProfileOption(
                     icon: Icons.help_outline,
                     text: "Ayuda y Soporte",
-                    onTap: () {},
+                    onTap: () => Navigator.pushNamed(context, "/ayuda"),
                   ),
+
                   _buildProfileOption(
                     icon: Icons.exit_to_app,
                     text: "Cerrar Sesión",
-                    onTap: () async {
-                      SharedPreferences prefs =
-                          await SharedPreferences.getInstance();
-                      await prefs.clear();
-                      Navigator.pushReplacementNamed(context, "/login");
-                    },
+                    onTap: () => _confirmLogout(context), // Llamamos a la alerta aquí
                   ),
                 ],
               ),
@@ -122,19 +154,19 @@ class _NavbarPerfilState extends State<NavbarPerfil> {
         margin: const EdgeInsets.symmetric(vertical: 10),
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.2),
+          color: Color.fromRGBO(227, 254, 247, 1).withOpacity(0.2),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
           children: [
-            Icon(icon, color: Colors.white, size: 28),
+            Icon(icon, color: Color.fromRGBO(227, 254, 247, 1), size: 28),
             const SizedBox(width: 15),
             Text(
               text,
-              style: const TextStyle(fontSize: 18, color: Colors.white),
+              style: const TextStyle(fontSize: 18, color: Color.fromRGBO(227, 254, 247, 1)),
             ),
             const Spacer(),
-            const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 20),
+            const Icon(Icons.arrow_forward_ios, color: Color.fromRGBO(227, 254, 247, 1), size: 20),
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:proyecto_final/controllers/register_controller.dart';
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'login_page.dart';
 import 'package:email_validator/email_validator.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -28,7 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
           content: Text('Ingrese un correo electrónico válido.',
               textAlign: TextAlign.center),
           duration: Duration(seconds: 2),
-          backgroundColor: Color.fromARGB(255, 201, 106, 106),
+          backgroundColor:Color.fromRGBO(227, 254, 247, 1),
         ),
       );
       return;
@@ -41,7 +41,7 @@ class _RegisterPageState extends State<RegisterPage> {
           content: Text('La contraseña debe tener al menos 8 caracteres.',
               textAlign: TextAlign.center),
           duration: Duration(seconds: 2),
-          backgroundColor: Color.fromARGB(255, 201, 106, 106),
+          backgroundColor: Color.fromRGBO(227, 254, 247, 1),
         ),
       );
       return;
@@ -57,7 +57,7 @@ class _RegisterPageState extends State<RegisterPage> {
               'La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número.',
               textAlign: TextAlign.center),
           duration: Duration(seconds: 3),
-          backgroundColor: Color.fromARGB(255, 201, 106, 106),
+          backgroundColor: Color.fromRGBO(227, 254, 247, 1),
         ),
       );
       return;
@@ -90,9 +90,9 @@ class _RegisterPageState extends State<RegisterPage> {
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF009FFD), Color(0xFF2A2A72)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+                colors: [Color.fromRGBO(19, 93, 102, 1),Color.fromRGBO(0, 60, 67, 1)],
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
               ),
             ),
           ),
@@ -102,11 +102,11 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.transparent,
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
+                      color: Colors.black.withOpacity(0),
                       blurRadius: 10,
                       spreadRadius: 2,
                     ),
@@ -126,7 +126,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         fontFamily: 'Arial',
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF2A2A72),
+                        color: Color.fromRGBO(227, 254, 247, 1),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -134,9 +134,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       controller: nameController,
                       decoration: InputDecoration(
                         labelText: 'Nombre',
-                        prefixIcon:
-                            const Icon(Icons.person, color: Color(0xFF009FFD)),
-                        border: OutlineInputBorder(
+                        labelStyle: const TextStyle(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del texto del label
+                        prefixIcon: const Icon(Icons.person, color: Color.fromRGBO(227, 254, 247, 1)),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del borde
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del borde
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
@@ -146,9 +151,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       controller: emailController,
                       decoration: InputDecoration(
                         labelText: 'Correo',
-                        prefixIcon:
-                            const Icon(Icons.email, color: Color(0xFF009FFD)),
-                        border: OutlineInputBorder(
+                        labelStyle: const TextStyle(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del texto del label
+                        prefixIcon: const Icon(Icons.email, color: Color.fromRGBO(227, 254, 247, 1)),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del borde
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del borde
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
@@ -159,14 +169,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       obscureText: _obscureText,
                       decoration: InputDecoration(
                         labelText: 'Contraseña',
-                        prefixIcon:
-                            const Icon(Icons.lock, color: Color(0xFF009FFD)),
+                        labelStyle: const TextStyle(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del texto del label
+                        prefixIcon: const Icon(Icons.lock, color: Color.fromRGBO(227, 254, 247, 1)),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscureText
                                 ? Icons.visibility_off
                                 : Icons.visibility,
-                            color: Colors.grey,
+                            color: Color.fromRGBO(227, 254, 247, 1),
                           ),
                           onPressed: () {
                             setState(() {
@@ -174,7 +184,12 @@ class _RegisterPageState extends State<RegisterPage> {
                             });
                           },
                         ),
-                        border: OutlineInputBorder(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del borde
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del borde
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
@@ -184,8 +199,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF009FFD),
-                          foregroundColor: Colors.white,
+                          backgroundColor: Color.fromRGBO(227, 254, 247, 1),
+                          foregroundColor: Color.fromRGBO(0, 60, 67, 1),
                           padding: const EdgeInsets.symmetric(vertical: 15),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
@@ -211,7 +226,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         "¿Ya tienes una cuenta? Inicia sesión",
                         style: TextStyle(
                           fontFamily: 'Arial',
-                          color: Color(0xFF009FFD),
+                          color: Color.fromRGBO(227, 254, 247, 1),
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
