@@ -24,11 +24,16 @@ class _RegisterPageState extends State<RegisterPage> {
     // Validación de correo
     if (!EmailValidator.validate(email)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Ingrese un correo electrónico válido.',
-              textAlign: TextAlign.center),
-          duration: Duration(seconds: 2),
-          backgroundColor:Color.fromRGBO(227, 254, 247, 1),
+        SnackBar(
+          content: const Text(
+            'Ingrese un correo electrónico válido.',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Color.fromRGBO(0, 60, 67, 1), // Cambia el color del texto
+            ),
+          ),
+          duration: const Duration(seconds: 2),
+          backgroundColor: const Color.fromRGBO(227, 254, 247, 1),
         ),
       );
       return;
@@ -37,11 +42,16 @@ class _RegisterPageState extends State<RegisterPage> {
     // Validación de contraseña mejorada
     if (password.length < 8) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('La contraseña debe tener al menos 8 caracteres.',
-              textAlign: TextAlign.center),
-          duration: Duration(seconds: 2),
-          backgroundColor: Color.fromRGBO(227, 254, 247, 1),
+        SnackBar(
+          content: const Text(
+            'La contraseña debe tener al menos 8 caracteres.',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Color.fromRGBO(0, 60, 67, 1), // Cambia el color del texto
+            ),
+          ),
+          duration: const Duration(seconds: 2),
+          backgroundColor: const Color.fromRGBO(227, 254, 247, 1),
         ),
       );
       return;
@@ -52,12 +62,16 @@ class _RegisterPageState extends State<RegisterPage> {
 
     if (!regex.hasMatch(password)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-              'La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número.',
-              textAlign: TextAlign.center),
-          duration: Duration(seconds: 3),
-          backgroundColor: Color.fromRGBO(227, 254, 247, 1),
+        SnackBar(
+          content: const Text(
+            'La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número.',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Color.fromRGBO(0, 60, 67, 1), // Cambia el color del texto
+            ),
+          ),
+          duration: const Duration(seconds: 3),
+          backgroundColor: const Color.fromRGBO(227, 254, 247, 1),
         ),
       );
       return;
@@ -67,17 +81,23 @@ class _RegisterPageState extends State<RegisterPage> {
     register(nameController.text, email, password);
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content:
-            Text('Usuario creado exitosamente', textAlign: TextAlign.center),
-        duration: Duration(seconds: 2),
+      SnackBar(
+        content: const Text(
+          'Usuario creado exitosamente',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Color.fromRGBO(0, 60, 67, 1), // Cambia el color del texto
+          ),
+        ),
+        duration: const Duration(seconds: 2),
+        backgroundColor: const Color.fromRGBO(227, 254, 247, 1),
       ),
     );
 
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
+        MaterialPageRoute(builder: (context) => const LoginPage()),
       );
     });
   }
@@ -132,6 +152,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(height: 10),
                     TextField(
                       controller: nameController,
+                      style: const TextStyle(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del texto ingresado
                       decoration: InputDecoration(
                         labelText: 'Nombre',
                         labelStyle: const TextStyle(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del texto del label
@@ -149,6 +170,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(height: 15),
                     TextField(
                       controller: emailController,
+                      style: const TextStyle(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del texto ingresado
                       decoration: InputDecoration(
                         labelText: 'Correo',
                         labelStyle: const TextStyle(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del texto del label
@@ -167,6 +189,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     TextField(
                       controller: passwordController,
                       obscureText: _obscureText,
+                      style: const TextStyle(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del texto ingresado
                       decoration: InputDecoration(
                         labelText: 'Contraseña',
                         labelStyle: const TextStyle(color: Color.fromRGBO(227, 254, 247, 1)), // Cambia el color del texto del label
@@ -199,8 +222,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromRGBO(227, 254, 247, 1),
-                          foregroundColor: Color.fromRGBO(0, 60, 67, 1),
+                          backgroundColor: Color.fromRGBO(227, 254, 247, 1), // Color de fondo del botón
                           padding: const EdgeInsets.symmetric(vertical: 15),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
@@ -213,6 +235,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             fontFamily: 'Arial',
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(0, 60, 67, 1), // Cambia el color del texto del botón
                           ),
                         ),
                       ),

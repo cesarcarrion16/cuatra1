@@ -8,7 +8,6 @@ import 'package:proyecto_final/pages/login_page.dart';
 import 'package:proyecto_final/pages/navbar/campus.dart';
 import 'package:proyecto_final/pages/navbar/carreras.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -65,7 +64,10 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(_pageTitles[_selectedIndex],style: TextStyle(fontWeight: FontWeight.bold)), // Aquí mostramos el título de la página actual
+            Text(
+              _pageTitles[_selectedIndex],
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ), // Aquí mostramos el título de la página actual
           ],
         ),
         backgroundColor: Color.fromRGBO(227, 254, 247, 1),
@@ -91,12 +93,9 @@ class _HomePageState extends State<HomePage> {
               accountName: Text(userName),
               accountEmail: Text(userEmail),
               currentAccountPicture: CircleAvatar(
-  backgroundImage: AssetImage("images/avatar.jpeg"),
-)
-              ,
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(19, 93, 102, 1),
+                backgroundImage: AssetImage("images/avatar.jpeg"),
               ),
+              decoration: BoxDecoration(color: Color.fromRGBO(19, 93, 102, 1)),
             ),
             _buildDrawerItem(Icons.home, 'Inicio', 0),
             _buildDrawerItem(Icons.school, 'Campus', 1),
@@ -142,30 +141,40 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-Widget _buildProfileMenu() {
-  return ExpansionTile(
-    leading: const Icon(Icons.person, color: Colors.white),
-    title: const Text('Perfil', style: TextStyle(color: Colors.white)),
-    children: [
-      Container(
-        color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Configuración
-        child: _buildDrawerItem(Icons.edit, 'Editar Perfil', 3),
-      ),
-      Container(
-        color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Configuración
-        child: _buildDrawerItem(Icons.settings, 'Configuración', 4),
-      ),
-      Container(
-        color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Seguridad
-        child: _buildDrawerItem(Icons.security, 'Seguridad', 5),
-      ),
-      Container(
-        color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Ayuda
-        child: _buildDrawerItem(Icons.help, 'Ayuda', 6),
-      ),
-    ],
-  );
-}
+  Widget _buildProfileMenu() {
+    return ExpansionTile(
+      leading: const Icon(Icons.person, color: Colors.white),
+      title: const Text('Perfil', style: TextStyle(color: Colors.white)),
+      children: [
+        Container(
+          color: const Color.fromRGBO(
+            19,
+            93,
+            102,
+            1,
+          ), // Fondo para Configuración
+          child: _buildDrawerItem(Icons.edit, 'Editar Perfil', 3),
+        ),
+        Container(
+          color: const Color.fromRGBO(
+            19,
+            93,
+            102,
+            1,
+          ), // Fondo para Configuración
+          child: _buildDrawerItem(Icons.settings, 'Configuración', 4),
+        ),
+        Container(
+          color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Seguridad
+          child: _buildDrawerItem(Icons.security, 'Seguridad', 5),
+        ),
+        Container(
+          color: const Color.fromRGBO(19, 93, 102, 1), // Fondo para Ayuda
+          child: _buildDrawerItem(Icons.help, 'Ayuda', 6),
+        ),
+      ],
+    );
+  }
 
   Widget _buildHomePage() {
     return Stack(
@@ -173,7 +182,10 @@ Widget _buildProfileMenu() {
         Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color.fromRGBO(19, 93, 102, 1), Color.fromRGBO(0, 60, 67, 1)],
+              colors: [
+                Color.fromRGBO(19, 93, 102, 1),
+                Color.fromRGBO(0, 60, 67, 1),
+              ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
